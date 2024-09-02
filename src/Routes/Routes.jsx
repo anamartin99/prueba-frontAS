@@ -1,51 +1,29 @@
-import React from 'react'
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomePage from '../Pages/HomePage/HomePage';
+import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import WhoAreWe from '../Components/WhoAreWe/WhoAreWe';
 import AdminPage from '../Pages/AdminPage/AdminPage';
-import RegisterPage from '../Pages/RegisterPage/RegisterPage';
+import Contact from '../Pages/Contact/Contact';
+import HomePage from '../Pages/HomePage/HomePage';
 import LoginPage from '../Pages/LoginPage/LoginPage';
 import NewsPage from '../Pages/NewsPage/NewsPage';
-import Contact from '../Pages/Contact/Contact';
-import WhoAreWe from '../Components/WhoAreWe/WhoAreWe';
-
+import RegisterPage from '../Pages/RegisterPage/RegisterPage';
 
 function Routes() {
+  const router = createBrowserRouter([
+    { path: "/", element: <HomePage /> },
+    { path: "/login", element: <LoginPage /> },
+    { path: "/admin", element: <AdminPage /> },
+    { path: "/register", element: <RegisterPage /> },
+    { path: "/news", element: <NewsPage /> },
+    { path: "/whoarewe", element: <WhoAreWe /> },
+    { path: "/contact", element: <Contact /> }
+  ]);
 
-    const router = createBrowserRouter([{
-        path: "/",
-        element: <HomePage/>
-    },
-    {
-        path: "/login",
-        element: <LoginPage />
-    },
-    {
-        path: "/admin",
-        element: <AdminPage />
-    },
-    {
-        path: "/register",
-        element: <RegisterPage />
-    },
-    {
-        path: "/news",
-        element: <NewsPage />
-    },
-    {
-        path: "/whoarewe",
-        element: <WhoAreWe />
-    },
-    {
-        path: "/contact",
-        element: <Contact />
-    }
-    ])
-
-    return (
-        <div className="App">
-            <RouterProvider router={router} />
-        </div>
-    )
+  return (
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
-export default Routes
+export default Routes;
